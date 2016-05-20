@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MvvmLightStart.ListPage">
+	<ContentPage.Content>
+	<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="8" Padding="8">
+		<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+			<Entry HorizontalOptions="FillAndExpand" HeightRequest="48" Text="{Binding NewItem}" ></Entry>
+			<Button Text="Add" HeightRequest="48" HorizontalOptions="End" Command="{Binding AddItem}"></Button>
+		</StackLayout>
+		<ListView ItemsSource="{Binding Items}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<SwitchCell Text="{Binding Name}" On="{Binding Done}"  >
+						<Button Text="Remove" VerticalOptions="CenterAndExpand"/>
+					</SwitchCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
